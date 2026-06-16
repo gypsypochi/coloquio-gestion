@@ -1,6 +1,8 @@
 const body = document.body;
 const toggleViewBtn = document.getElementById("toggleViewBtn");
 const themeToggleBtn = document.getElementById("themeToggleBtn");
+const mobileActionsToggle = document.getElementById("mobileActionsToggle");
+const actionsPanel = document.getElementById("actionsPanel");
 const printBtn = document.getElementById("printBtn");
 const resetProgressBtn = document.getElementById("resetProgressBtn");
 const viewStatus = document.getElementById("viewStatus");
@@ -89,6 +91,16 @@ function setTheme(mode, persist = true) {
   if (persist) {
     safeStorageSet(STORAGE_KEYS.theme, normalizedMode);
   }
+}
+
+function setMobileActionsMenu(isOpen) {
+  if (!mobileActionsToggle || !actionsPanel) {
+    return;
+  }
+
+  actionsPanel.classList.toggle("is-open", isOpen);
+  mobileActionsToggle.setAttribute("aria-expanded", String(isOpen));
+  mobileActionsToggle.textContent = isOpen ? "Cerrar opciones" : "☰ Opciones";
 }
 
 function updateChecklistProgress() {
@@ -258,6 +270,11 @@ themeToggleBtn?.addEventListener("click", () => {
   setTheme(nextTheme);
 });
 
+mobileActionsToggle?.addEventListener("click", () => {
+  const isOpen = !actionsPanel?.classList.contains("is-open");
+  setMobileActionsMenu(Boolean(isOpen));
+});
+
 checks.forEach((check) => {
   check.addEventListener("change", updateChecklistProgress);
 });
@@ -288,4 +305,5 @@ scriptHeaders.forEach((header) => {
   });
 });
 
+setMobileActionsMenu(false);
 loadProgress();

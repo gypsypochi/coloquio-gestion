@@ -24,31 +24,42 @@
 
   <div class="toolbar">
     <div class="container toolbar__content">
-      <div class="toolbar__actions">
-        <button type="button" id="toggleViewBtn" class="button button--primary" aria-pressed="true">
-          Vista resumen / Vista guion completo
-        </button>
-        <button type="button" id="printBtn" class="button button--secondary">
-          Imprimir guia
-        </button>
-        <button type="button" id="resetProgressBtn" class="button button--ghost">
-          Reiniciar progreso
-        </button>
-        <button
-          type="button"
-          id="themeToggleBtn"
-          class="theme-toggle"
-          aria-pressed="false"
-          aria-label="Cambiar modo claro u oscuro"
-        >
-          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
-          <span class="theme-toggle__track" aria-hidden="true">
-            <span class="theme-toggle__thumb"></span>
-          </span>
-          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
-        </button>
+      <button
+        type="button"
+        id="mobileActionsToggle"
+        class="mobile-actions-toggle"
+        aria-expanded="false"
+        aria-controls="actionsPanel"
+      >
+        ☰ Opciones
+      </button>
+      <div id="actionsPanel" class="actions-panel">
+        <div class="toolbar__actions">
+          <button type="button" id="toggleViewBtn" class="button button--primary" aria-pressed="true">
+            Vista resumen / Vista guion completo
+          </button>
+          <button type="button" id="printBtn" class="button button--secondary">
+            Imprimir guia
+          </button>
+          <button type="button" id="resetProgressBtn" class="button button--ghost">
+            Reiniciar progreso
+          </button>
+          <button
+            type="button"
+            id="themeToggleBtn"
+            class="theme-toggle"
+            aria-pressed="false"
+            aria-label="Cambiar modo claro u oscuro"
+          >
+            <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+            <span class="theme-toggle__track" aria-hidden="true">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+        <p class="toolbar__status" id="viewStatus">Vista actual: guion completo</p>
       </div>
-      <p class="toolbar__status" id="viewStatus">Vista actual: guion completo</p>
     </div>
   </div>
 
@@ -292,8 +303,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Micaela</span>
-              <span>0:00-0:30</span>
-              <span class="script-card__chevron" aria-hidden="true">▲</span>
+              <span class="script-card__time">0:00-0:30</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▲</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-1">
@@ -341,8 +352,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Micaela</span>
-              <span>0:30-1:20</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">0:30-1:20</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-2">
@@ -396,8 +407,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Micaela</span>
-              <span>1:20-2:00</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">1:20-2:00</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-3">
@@ -450,8 +461,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Micaela</span>
-              <span>2:00-2:50</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">2:00-2:50</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-4">
@@ -500,8 +511,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Virginia</span>
-              <span>2:50-4:30</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">2:50-4:30</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-5">
@@ -553,8 +564,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Virginia</span>
-              <span>4:30-6:00</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">4:30-6:00</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-6">
@@ -612,8 +623,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Virginia</span>
-              <span>6:00-7:20</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">6:00-7:20</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-7">
@@ -668,8 +679,8 @@
             </span>
             <span class="script-card__header-meta">
               <span class="speaker-tag">Virginia</span>
-              <span>7:20-8:00</span>
-              <span class="script-card__chevron" aria-hidden="true">▼</span>
+              <span class="script-card__time">7:20-8:00</span>
+              <span class="script-card__chevron script-card__toggle-icon" aria-hidden="true">▼</span>
             </span>
           </button>
           <div class="script-card__panel" id="slide-panel-8">
