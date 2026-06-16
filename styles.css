@@ -213,6 +213,18 @@ a:focus-visible {
 
 .mobile-actions-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.68rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
 .actions-panel {
@@ -221,6 +233,16 @@ a:focus-visible {
   align-items: center;
   gap: 1rem;
   width: 100%;
+}
+
+@media (min-width: 641px) {
+  .mobile-actions-toggle {
+    display: none !important;
+  }
+
+  .actions-panel {
+    display: flex !important;
+  }
 }
 
 .toolbar__actions {
@@ -892,22 +914,15 @@ body.dark-mode .theme-toggle__icon:last-child {
 
   .mobile-actions-toggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     align-self: flex-start;
     min-height: 40px;
     padding: 0.62rem 0.9rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--button-secondary-bg);
-    color: var(--button-secondary-text);
-    cursor: pointer;
     font-size: 0.92rem;
-    font-weight: 600;
+    box-shadow: none;
   }
 
   .actions-panel {
-    display: none;
+    display: none !important;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
@@ -920,7 +935,7 @@ body.dark-mode .theme-toggle__icon:last-child {
   }
 
   .actions-panel.is-open {
-    display: flex;
+    display: flex !important;
   }
 
   .toolbar__actions {
