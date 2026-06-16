@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coloquio - ITSolutions AR</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Guia de presentacion academica</p>
+        <h1>GESTION DE PROYECTOS - Coloquio</h1>
+        <p class="hero__subtitle">Guia de presentacion para video grupal</p>
+        <div class="hero__meta">
+          <span><strong>Integrantes:</strong> Micaela Luaces y Virginia Cardoso</span>
+          <span><strong>Video estimado:</strong> 7 a 8 minutos</span>
+          <span><strong>Duracion permitida:</strong> 5 a 10 minutos</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="container toolbar__content">
+      <div class="toolbar__actions">
+        <button type="button" id="toggleViewBtn" class="button button--primary" aria-pressed="true">
+          Vista resumen / Vista guion completo
+        </button>
+        <button type="button" id="printBtn" class="button button--secondary">
+          Imprimir guia
+        </button>
+        <button type="button" id="resetProgressBtn" class="button button--ghost">
+          Reiniciar progreso
+        </button>
+        <button
+          type="button"
+          id="themeToggleBtn"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="Cambiar modo claro u oscuro"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+          <span class="theme-toggle__track" aria-hidden="true">
+            <span class="theme-toggle__thumb"></span>
+          </span>
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+      <p class="toolbar__status" id="viewStatus">Vista actual: guion completo</p>
+    </div>
+  </div>
+
+  <main class="container layout">
+    <section id="checklist" class="section card">
+      <div class="section__header">
+        <p class="section__eyebrow">Control</p>
+        <h2>Checklist final</h2>
+      </div>
+      <p class="checklist-note">
+        El coloquio debe presentar el proyecto como una propuesta empresaria para un cliente, no como una lectura
+        completa del trabajo practico. La presentacion debe ser sintetica, clara y apoyada en datos, graficos y
+        ejemplos concretos.
+      </p>
+      <div class="checklist-grid">
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-presentation-finished">
+          <span>Presentacion terminada</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-script-reviewed">
+          <span>Guion revisado</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-micaela-recorded">
+          <span>Parte de Micaela grabada</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-virginia-recorded">
+          <span>Parte de Virginia grabada</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-videos-merged">
+          <span>Videos unidos en un solo archivo</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-final-edit-reviewed">
+          <span>Video final editado y revisado</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-youtube-uploaded">
+          <span>Video subido como oculto a YouTube</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="progress-check" id="check-forum-submitted">
+          <span>Entrega realizada en el foro</span>
+        </label>
+      </div>
+      <div class="progress">
+        <div class="progress__label">
+          <span>Progreso de practica</span>
+          <strong id="progressText">0%</strong>
+        </div>
+        <div class="progress__bar" aria-hidden="true">
+          <div class="progress__fill" id="progressFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="division" class="section card">
+      <div class="section__header">
+        <p class="section__eyebrow">Organizacion</p>
+        <h2>Division de temas</h2>
+      </div>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tiempo</th>
+              <th>Tema</th>
+              <th>Responsable</th>
+              <th>Slide sugerida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0:00-0:30</td>
+              <td>Presentacion + elevator pitch</td>
+              <td>Micaela</td>
+              <td>Slide 1</td>
+            </tr>
+            <tr>
+              <td>0:30-2:00</td>
+              <td>Problema, solucion, propuesta de valor, sectores y KPIs</td>
+              <td>Micaela</td>
+              <td>Slides 2 y 3</td>
+            </tr>
+            <tr>
+              <td>2:00-2:50</td>
+              <td>Stakeholders principales</td>
+              <td>Micaela</td>
+              <td>Slide 4</td>
+            </tr>
+            <tr>
+              <td>2:50-4:30</td>
+              <td>Fases, metodologia y Gantt/PERT/CPM</td>
+              <td>Virginia</td>
+              <td>Slide 5</td>
+            </tr>
+            <tr>
+              <td>4:30-6:00</td>
+              <td>Riesgos prioritarios y mitigacion</td>
+              <td>Virginia</td>
+              <td>Slide 6</td>
+            </tr>
+            <tr>
+              <td>6:00-7:20</td>
+              <td>Costos, presupuesto venta y que recibe el cliente</td>
+              <td>Virginia</td>
+              <td>Slide 7</td>
+            </tr>
+            <tr>
+              <td>7:20-8:00</td>
+              <td>Cierre comercial del proyecto</td>
+              <td>Ambas o una sola</td>
+              <td>Slide 8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="division-cards" aria-label="Resumen visual de bloques">
+        <article class="division-card">
+          <span class="division-card__time">0:00-0:30</span>
+          <h3>Presentacion + elevator pitch</h3>
+          <p><strong>Responsable:</strong> Micaela</p>
+          <p><strong>Slide:</strong> 1</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">0:30-2:00</span>
+          <h3>Problema, solucion, valor, sectores y KPIs</h3>
+          <p><strong>Responsable:</strong> Micaela</p>
+          <p><strong>Slides:</strong> 2 y 3</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">2:00-2:50</span>
+          <h3>Stakeholders principales</h3>
+          <p><strong>Responsable:</strong> Micaela</p>
+          <p><strong>Slide:</strong> 4</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">2:50-4:30</span>
+          <h3>Fases, metodologia y Gantt/PERT/CPM</h3>
+          <p><strong>Responsable:</strong> Virginia</p>
+          <p><strong>Slide:</strong> 5</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">4:30-6:00</span>
+          <h3>Riesgos prioritarios y mitigacion</h3>
+          <p><strong>Responsable:</strong> Virginia</p>
+          <p><strong>Slide:</strong> 6</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">6:00-7:20</span>
+          <h3>Costos, presupuesto y entrega al cliente</h3>
+          <p><strong>Responsable:</strong> Virginia</p>
+          <p><strong>Slide:</strong> 7</p>
+        </article>
+        <article class="division-card">
+          <span class="division-card__time">7:20-8:00</span>
+          <h3>Cierre comercial del proyecto</h3>
+          <p><strong>Responsable:</strong> Ambas o una sola</p>
+          <p><strong>Slide:</strong> 8</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="temas" class="section card">
+      <div class="section__header">
+        <p class="section__eyebrow">Contenido</p>
+        <h2>Temas obligatorios</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="info-card">
+          <h3>Vision general del proyecto</h3>
+          <p>Recordar que ITSolutions AR es una plataforma WebAR 3D accesible desde navegador movil.</p>
+        </article>
+        <article class="info-card">
+          <h3>Problema a resolver</h3>
+          <p>Explicar la necesidad de conectar objetos fisicos con contenido digital sin instalar apps.</p>
+        </article>
+        <article class="info-card">
+          <h3>Propuesta de valor</h3>
+          <p>Resumir por que la solucion aporta diferenciacion, accesibilidad y experiencia interactiva.</p>
+        </article>
+        <article class="info-card">
+          <h3>Indicadores de exito</h3>
+          <p>Mencionar los KPIs que permiten medir alcance, uso, conversion o impacto.</p>
+        </article>
+        <article class="info-card">
+          <h3>Stakeholders</h3>
+          <p>Nombrar los actores clave y su relacion con el desarrollo y la adopcion del proyecto.</p>
+        </article>
+        <article class="info-card">
+          <h3>Estructura y cronograma</h3>
+          <p>Recordar fases, metodologia y herramientas de planificacion temporal.</p>
+        </article>
+        <article class="info-card">
+          <h3>Riesgos y mitigacion</h3>
+          <p>Destacar los riesgos principales junto con la accion prevista para reducirlos.</p>
+        </article>
+        <article class="info-card">
+          <h3>Costos del proyecto</h3>
+          <p>Recordar presupuesto, valor de venta y entregables concretos para el cliente.</p>
+        </article>
+        <article class="info-card">
+          <h3>Cierre comercial</h3>
+          <p>Cerrar con una sintesis convincente de beneficios, propuesta y resultado esperado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="progreso-practica" class="section card">
+      <div class="section__header">
+        <p class="section__eyebrow">Seguimiento</p>
+        <h2>Progreso de practica</h2>
+      </div>
+      <div class="practice-progress">
+        <p class="practice-progress__text" id="practiceBlocksText">Bloques practicados: 0 de 8</p>
+        <div class="progress__bar practice-progress__bar" aria-hidden="true">
+          <div
+            class="progress__fill practice-progress__fill"
+            id="practiceProgressFill"
+            style="width: 0%;"
+          ></div>
+        </div>
+      </div>
+      <!-- Mantener estos ids para conectar luego la logica de avance por bloques -->
+    </section>
+
+    <section id="guion" class="section card" data-view="full">
+      <div class="section__header">
+        <p class="section__eyebrow">Narrativa</p>
+        <h2>Guion completo</h2>
+      </div>
+      <div class="script-list">
+        <article class="script-card speaker-micaela is-open" id="slide-card-1" data-slide="1">
+          <button type="button" class="script-card__header" aria-expanded="true" aria-controls="slide-panel-1">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 1</span>
+              <span class="script-card__header-title">Presentacion e introduccion</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Micaela</span>
+              <span>0:00-0:30</span>
+              <span class="script-card__chevron" aria-hidden="true">▲</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-1">
+            <div class="script-card__layout">
+              <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 1">
+                <span class="slide-preview__label">Slide 1</span>
+                <p>Agregar captura de la diapositiva</p>
+                <!-- Reemplazar este bloque por: <img src="assets/slides/slide-1.png" alt="Captura de la slide 1"> -->
+              </div>
+              <div class="script-card__body">
+                <h3>Slide 1 - Presentacion e introduccion</h3>
+                <div class="script-card__meta">
+                  <span><strong>Responsable:</strong> Micaela</span>
+                  <span><strong>Tiempo:</strong> 0:00-0:30</span>
+                </div>
+                <div class="script-card__content script-text" id="slide-script-1">
+                  <p>
+                    Imaginen que un comercio, una escuela o un museo pudiera mostrar contenido 3D interactivo desde un
+                    simple QR, sin instalar aplicaciones y sin invertir en una app propia. Esa es la propuesta de
+                    ITSolutions AR.
+                  </p>
+                  <p>
+                    Hola, somos Micaela Luaces y Virginia Cardoso, integrantes del Equipo 8. En este coloquio vamos a
+                    presentar ITSolutions AR, una plataforma WebAR 3D interactiva pensada para acercar la realidad
+                    aumentada a comercios, instituciones educativas y espacios turisticos.
+                  </p>
+                  <p>
+                    Nuestro objetivo es presentar una solucion viable para organizaciones que necesitan conectar objetos
+                    fisicos con informacion digital interactiva de forma simple, accesible y escalable.
+                  </p>
+                </div>
+                <button type="button" class="button button--secondary script-card__button" id="practice-btn-1">
+                  Marcar como practicado
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-micaela" id="slide-card-2" data-slide="2">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-2">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 2</span>
+              <span class="script-card__header-title">Problema y propuesta de valor</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Micaela</span>
+              <span>0:30-1:20</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-2">
+            <div class="script-card__layout">
+              <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 2">
+                <span class="slide-preview__label">Slide 2</span>
+                <p>Agregar captura de la diapositiva</p>
+                <!-- Reemplazar este bloque por: <img src="assets/slides/slide-2.png" alt="Captura de la slide 2"> -->
+              </div>
+              <div class="script-card__body">
+                <h3>Slide 2 - Problema y propuesta de valor</h3>
+                <div class="script-card__meta">
+                  <span><strong>Responsable:</strong> Micaela</span>
+                  <span><strong>Tiempo:</strong> 0:30-1:20</span>
+                </div>
+                <div class="script-card__content script-text" id="slide-script-2">
+                  <p>
+                    El problema que detectamos es que muchas organizaciones tienen informacion digital valiosa, pero esa
+                    informacion queda separada del entorno fisico donde el usuario toma decisiones, aprende o recorre un
+                    espacio.
+                  </p>
+                  <p>
+                    Ademas, muchas soluciones de realidad aumentada actuales requieren aplicaciones nativas, descargas
+                    pesadas, desarrollos a medida o costos altos de implementacion. Eso genera friccion para el usuario y
+                    limita el acceso para PyMEs, escuelas o instituciones mas pequenas.
+                  </p>
+                  <p>
+                    ITSolutions AR propone resolver esto mediante una plataforma WebAR accesible desde el navegador movil. El
+                    usuario solo necesita escanear un QR o marcador y puede visualizar contenido 3D interactivo directamente
+                    desde su celular.
+                  </p>
+                  <p>
+                    La propuesta de valor se basa en tres puntos: cero friccion para el usuario, bajo costo operativo
+                    mediante tecnologias web y open source, y una arquitectura modular que permite reutilizar la misma base
+                    de codigo en distintos sectores.
+                  </p>
+                </div>
+                <button type="button" class="button button--secondary script-card__button" id="practice-btn-2">
+                  Marcar como practicado
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-micaela" id="slide-card-3" data-slide="3">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-3">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 3</span>
+              <span class="script-card__header-title">Aplicaciones e indicadores de exito</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Micaela</span>
+              <span>1:20-2:00</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-3">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 3">
+              <span class="slide-preview__label">Slide 3</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-3.png" alt="Captura de la slide 3"> -->
+            </div>
+            <div class="script-card__body">
+              <h3>Slide 3 - Aplicaciones e indicadores de exito</h3>
+              <div class="script-card__meta">
+                <span><strong>Responsable:</strong> Micaela</span>
+                <span><strong>Tiempo:</strong> 1:20-2:00</span>
+              </div>
+                <div class="script-card__content script-text" id="slide-script-3">
+                  <p>La plataforma puede aplicarse en tres sectores principales.</p>
+                  <p>
+                    En retail o comercio, permite visualizar productos en el espacio real antes de comprar, por ejemplo
+                    muebles, articulos de decoracion o productos que el cliente quiera ver en escala.
+                  </p>
+                  <p>
+                    En educacion, permite representar conceptos abstractos o tridimensionales, como moleculas, piezas
+                    mecanicas, objetos historicos o estructuras geometricas.
+                  </p>
+                  <p>
+                    En turismo, puede enriquecer puntos de interes mediante informacion contextual, modelos 3D o
+                    experiencias interactivas activadas por QR.
+                  </p>
+                  <p>
+                    Para medir el exito del proyecto definimos indicadores concretos. Entre ellos: publicar experiencias
+                    para tres sectores con la misma base de codigo, reducir el tiempo de publicacion de una experiencia a
+                    menos de diez minutos, lograr una tasa de deteccion de marcadores superior al 90% y registrar al menos
+                    tres eventos clave por sesion, como apertura, deteccion y clics.
+                  </p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-3">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-micaela" id="slide-card-4" data-slide="4">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-4">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 4</span>
+              <span class="script-card__header-title">Stakeholders</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Micaela</span>
+              <span>2:00-2:50</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-4">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 4">
+              <span class="slide-preview__label">Slide 4</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-4.png" alt="Captura de la slide 4"> -->
+            </div>
+            <div class="script-card__body">
+              <h3>Slide 4 - Stakeholders</h3>
+              <div class="script-card__meta">
+                <span><strong>Responsable:</strong> Micaela</span>
+                <span><strong>Tiempo:</strong> 2:00-2:50</span>
+              </div>
+                <div class="script-card__content script-text" id="slide-script-4">
+                  <p>Los principales stakeholders del proyecto son los clientes, los usuarios finales y el equipo tecnico.</p>
+                  <p>
+                    Los clientes, como PyMEs, escuelas, museos o instituciones, tienen alto interes y alto poder porque
+                    buscan retorno de inversion, facilidad de uso y una solucion que no requiera grandes costos de
+                    infraestructura.
+                  </p>
+                  <p>
+                    Los usuarios finales tambien tienen alto interes, porque son quienes interactuan con la experiencia.
+                    Para ellos, lo mas importante es que el sistema sea rapido, claro, inmersivo y sin descargas.
+                  </p>
+                  <p>
+                    El equipo tecnico es clave porque debe sostener una arquitectura mantenible, documentada y escalable.
+                    Esto permite que el proyecto pueda crecer, incorporar nuevos sectores y actualizarse sin rehacer el
+                    sistema desde cero.
+                  </p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-4">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-virginia" id="slide-card-5" data-slide="5">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-5">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 5</span>
+              <span class="script-card__header-title">Estructura y cronograma</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Virginia</span>
+              <span>2:50-4:30</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-5">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 5">
+              <span class="slide-preview__label">Slide 5</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-5.png" alt="Captura de la slide 5"> -->
+            </div>
+            <div class="script-card__body">
+              <h3>Slide 5 - Estructura y cronograma</h3>
+              <div class="script-card__meta">
+                <span><strong>Responsable:</strong> Virginia</span>
+                <span><strong>Tiempo:</strong> 2:50-4:30</span>
+              </div>
+                <div class="script-card__content script-text" id="slide-script-5">
+                  <p>
+                    El proyecto se organizo en fases: analisis y requerimientos, diseno del sistema, desarrollo e
+                    implementacion del MVP, pruebas y QA, capacitacion, documentacion y mantenimiento.
+                  </p>
+                <p>
+                  La metodologia elegida fue Scrum, con sprints de dos semanas, porque WebAR es una tecnologia que
+                  requiere validacion constante en dispositivos fisicos. No alcanza con desarrollar en escritorio: hay que
+                  probar camara, iluminacion, deteccion de superficies, rendimiento y compatibilidad movil.
+                </p>
+                  <p>
+                    Para estimar los tiempos se utilizo PERT, considerando escenarios optimistas, probables y
+                    pesimistas. Luego se aplico CPM para identificar el camino critico.
+                  </p>
+                  <p>
+                    En la diapositiva se muestra el Diagrama de Gantt, donde se visualizan las fases, responsables,
+                    duracion estimada y actividades criticas. La duracion total estimada del proyecto es de 54 dias
+                    habiles, incluyendo analisis, diseno, desarrollo, integracion, QA y cierre.
+                  </p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-5">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-virginia" id="slide-card-6" data-slide="6">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-6">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 6</span>
+              <span class="script-card__header-title">Riesgos y mitigacion</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Virginia</span>
+              <span>4:30-6:00</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-6">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 6">
+              <span class="slide-preview__label">Slide 6</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-6.png" alt="Captura de la slide 6"> -->
+            </div>
+            <div class="script-card__body">
+              <h3>Slide 6 - Riesgos y mitigacion</h3>
+              <div class="script-card__meta">
+                <span><strong>Responsable:</strong> Virginia</span>
+                <span><strong>Tiempo:</strong> 4:30-6:00</span>
+              </div>
+                <div class="script-card__content script-text" id="slide-script-6">
+                  <p>Los riesgos principales del proyecto son tecnicos, de planificacion y de calidad.</p>
+                  <p>
+                    El primer riesgo es la incompatibilidad o comportamiento irregular de WebXR entre dispositivos Android
+                    e iOS. Para mitigarlo, se planifican pruebas en dispositivos reales antes de cada entrega y
+                    alternativas como model-viewer, Quick Look o Scene Viewer.
+                  </p>
+                  <p>
+                    Otro riesgo es la falla en la deteccion de superficies o marcadores por iluminacion, camara o entorno
+                    fisico. La mitigacion consiste en probar en distintas condiciones y agregar mensajes de ayuda para
+                    orientar al usuario, por ejemplo mejorar la iluminacion o mover lentamente el dispositivo.
+                  </p>
+                  <p>
+                    Tambien existe el riesgo de modelos 3D demasiado pesados, que pueden generar carga lenta o mala
+                    experiencia. Para reducirlo, se propone optimizar archivos .glb, limitar el tamano de los assets y
+                    validar tiempos de carga.
+                  </p>
+                  <p>
+                    Ademas, el acceso a camara y WebXR requiere HTTPS, por lo que todos los entornos de prueba y despliegue
+                    deben usar protocolos seguros.
+                  </p>
+                  <p>
+                    Por ultimo, se contempla el riesgo de ampliacion del alcance. Para mitigarlo, se separa claramente lo
+                    que corresponde al MVP, lo que queda para una segunda etapa y lo que se proyecta para futuras versiones.
+                  </p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-6">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-virginia" id="slide-card-7" data-slide="7">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-7">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 7</span>
+              <span class="script-card__header-title">Costos y presupuesto venta</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Virginia</span>
+              <span>6:00-7:20</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-7">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 7">
+              <span class="slide-preview__label">Slide 7</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-7.png" alt="Captura de la slide 7"> -->
+            </div>
+            <div class="script-card__body">
+              <h3>Slide 7 - Costos y presupuesto venta</h3>
+              <div class="script-card__meta">
+                <span><strong>Responsable:</strong> Virginia</span>
+                <span><strong>Tiempo:</strong> 6:00-7:20</span>
+              </div>
+                <div class="script-card__content script-text" id="slide-script-7">
+                  <p>El presupuesto del proyecto se divide en costos directos e indirectos.</p>
+                  <p>
+                    Los costos directos corresponden principalmente a la mano de obra tecnica de analisis, diseno,
+                    desarrollo, QA, integracion y documentacion. El total estimado de mano de obra es de 12.720 dolares.
+                </p>
+                <p>
+                  Los costos indirectos incluyen infraestructura cloud, licencias de gestion, Figma, GitHub, Jira y
+                  analitica web. Estos costos se estiman en 234 dolares.
+                </p>
+                  <p>El presupuesto total estimado del proyecto es de 12.954 dolares.</p>
+                  <p>
+                    Este monto se presenta como presupuesto venta del proyecto. Incluye el desarrollo y configuracion de
+                    la plataforma WebAR, experiencias 3D configurables, acceso mediante navegador, integracion con QR o
+                    marcadores, pruebas de compatibilidad, documentacion y una base escalable para incorporar nuevas
+                    funcionalidades.
+                  </p>
+                  <p>
+                    Desde la mirada del cliente, no recibe solamente una pagina web, sino una solucion tecnologica que le
+                    permite publicar experiencias inmersivas de bajo costo, adaptables a su sector y reutilizables para
+                    futuros contenidos.
+                  </p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-7">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+
+        <article class="script-card speaker-virginia" id="slide-card-8" data-slide="8">
+          <button type="button" class="script-card__header" aria-expanded="false" aria-controls="slide-panel-8">
+            <span class="script-card__header-main">
+              <span class="script-card__header-slide">Slide 8</span>
+              <span class="script-card__header-title">Cierre</span>
+            </span>
+            <span class="script-card__header-meta">
+              <span class="speaker-tag">Virginia</span>
+              <span>7:20-8:00</span>
+              <span class="script-card__chevron" aria-hidden="true">▼</span>
+            </span>
+          </button>
+          <div class="script-card__panel" id="slide-panel-8">
+            <div class="script-card__layout">
+            <div class="slide-preview" aria-label="Espacio para captura de la diapositiva 8">
+              <span class="slide-preview__label">Slide 8</span>
+              <p>Agregar captura de la diapositiva</p>
+              <!-- Reemplazar este bloque por: <img src="assets/slides/slide-8.png" alt="Captura de la slide 8"> -->
+            </div>
+              <div class="script-card__body">
+                <h3>Slide 8 - Cierre</h3>
+                <div class="script-card__meta">
+                  <span><strong>Responsable:</strong> Virginia</span>
+                  <span><strong>Tiempo:</strong> 7:20-8:00</span>
+                </div>
+                <div class="script-card__content script-text" id="slide-script-8">
+                  <p>
+                    En conclusion, ITSolutions AR busca democratizar el acceso a experiencias inmersivas.
+                  </p>
+                  <p>
+                    Su valor esta en permitir que organizaciones pequenas o medianas puedan incorporar realidad aumentada
+                    sin desarrollar una app nativa, sin altos costos iniciales y con una solucion adaptable a distintos
+                    contextos.
+                  </p>
+                  <p>
+                    El proyecto es viable tecnicamente porque se apoya en tecnologias web, es viable operativamente
+                    porque se organiza por fases y sprints, y es viable comercialmente porque puede transformarse en un
+                    modelo SaaS o en desarrollos personalizados por cliente.
+                  </p>
+                  <p>
+                    Por eso, ITSolutions AR no solo resuelve una necesidad actual, sino que tambien deja una base
+                    preparada para crecer, incorporar nuevos clientes y sostenerse a futuro.
+                  </p>
+                  <p>Muchas gracias.</p>
+                </div>
+              <button type="button" class="button button--secondary script-card__button" id="practice-btn-8">
+                Marcar como practicado
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="recomendaciones" class="section card">
+      <div class="section__header">
+        <p class="section__eyebrow">Apoyo</p>
+        <h2>Recomendaciones para grabar</h2>
+      </div>
+      <ul class="checklist">
+        <li>No leer todo de memoria; usar el guion como apoyo.</li>
+        <li>Mantener audio parejo entre ambas integrantes.</li>
+        <li>Usar pocas diapositivas y poco texto.</li>
+        <li>Mostrar datos concretos: KPIs, Gantt, riesgos y costos.</li>
+        <li>Ensayar una vez completa antes de grabar.</li>
+        <li>Verificar que el video dure entre 5 y 10 minutos.</li>
+        <li>Subirlo como video oculto a YouTube y compartir el enlace en el foro correspondiente.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
