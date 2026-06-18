@@ -631,6 +631,11 @@ body.dark-mode .theme-toggle__icon:last-child {
   justify-content: space-between;
 }
 
+.slide-preview--image {
+  align-items: center;
+  justify-content: center;
+}
+
 .slide-preview__label {
   display: inline-flex;
   align-items: center;
@@ -655,7 +660,7 @@ body.dark-mode .theme-toggle__icon:last-child {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: calc(var(--radius-md) - 4px);
+  border-radius: 12px;
 }
 
 .script-card__body {
